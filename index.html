@@ -23,15 +23,10 @@ body{
     padding:18px;
 }
 
-/* HEADER */
-
-.header{
-    margin-bottom:25px;
-}
-
 .title{
     font-size:32px;
     font-weight:700;
+    margin-bottom:5px;
     background:linear-gradient(to right,#ff0055,#ff7b00);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
@@ -40,10 +35,8 @@ body{
 .desc{
     color:#888;
     font-size:13px;
-    margin-top:4px;
+    margin-bottom:25px;
 }
-
-/* GRID */
 
 .grid{
     display:grid;
@@ -51,50 +44,34 @@ body{
     gap:16px;
 }
 
-/* CARD */
-
 .card{
     background:#101010;
     border-radius:20px;
     overflow:hidden;
-    transition:.3s;
     border:1px solid rgba(255,255,255,.05);
-    position:relative;
+    transition:.3s;
 }
 
 .card:hover{
     transform:translateY(-5px);
-    border:1px solid rgba(255,0,85,.3);
 }
-
-/* THUMBNAIL */
 
 .thumbnail{
     position:relative;
     height:240px;
-    overflow:hidden;
 }
 
 .thumbnail img{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:.4s;
 }
-
-.card:hover img{
-    transform:scale(1.05);
-}
-
-/* OVERLAY */
 
 .overlay{
     position:absolute;
     inset:0;
     background:linear-gradient(to top,rgba(0,0,0,.7),transparent);
 }
-
-/* PLAY BUTTON */
 
 .play{
     position:absolute;
@@ -104,25 +81,25 @@ body{
     align-items:center;
 }
 
-.play button{
+.play a{
     width:60px;
     height:60px;
     border-radius:50%;
-    border:none;
-    background:rgba(255,255,255,.12);
+    background:rgba(255,255,255,.15);
     backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
     color:white;
     font-size:22px;
-    cursor:pointer;
     transition:.3s;
 }
 
-.play button:hover{
+.play a:hover{
     background:#ff0055;
     transform:scale(1.1);
 }
-
-/* INFO */
 
 .info{
     padding:14px;
@@ -138,8 +115,6 @@ body{
     font-size:12px;
 }
 
-/* BADGE */
-
 .badge{
     position:absolute;
     top:12px;
@@ -150,9 +125,8 @@ body{
     border-radius:30px;
     font-size:11px;
     font-weight:600;
+    z-index:2;
 }
-
-/* MOBILE */
 
 @media(max-width:768px){
 
@@ -174,10 +148,8 @@ body{
 </head>
 <body>
 
-<div class="header">
 <div class="title">Bro Chil Indo</div>
 <div class="desc">Unlimited Streaming • Full HD Premium</div>
-</div>
 
 <div class="grid">
 
@@ -185,16 +157,16 @@ body{
 
 <div class="card">
 
-<div class="badge">HOT</div>
-
 <div class="thumbnail">
+
+<div class="badge">HOT</div>
 
 <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?q=80&w=1200&auto=format&fit=crop">
 
 <div class="overlay"></div>
 
 <div class="play">
-<button onclick="openVideo(1)">▶</button>
+<a href="shopee://open?url=https://s.shopee.co.id/1LcPc6i8l4">▶</a>
 </div>
 
 </div>
@@ -210,16 +182,16 @@ body{
 
 <div class="card">
 
-<div class="badge">VIP</div>
-
 <div class="thumbnail">
+
+<div class="badge">VIP</div>
 
 <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200&auto=format&fit=crop">
 
 <div class="overlay"></div>
 
 <div class="play">
-<button onclick="openVideo(2)">▶</button>
+<a href="shopee://open?url=https://s.shopee.co.id/LINKKEDUA">▶</a>
 </div>
 
 </div>
@@ -235,16 +207,16 @@ body{
 
 <div class="card">
 
-<div class="badge">NEW</div>
-
 <div class="thumbnail">
+
+<div class="badge">NEW</div>
 
 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
 
 <div class="overlay"></div>
 
 <div class="play">
-<button onclick="openVideo(3)">▶</button>
+<a href="shopee://open?url=https://s.shopee.co.id/LINKKETIGA">▶</a>
 </div>
 
 </div>
@@ -260,16 +232,16 @@ body{
 
 <div class="card">
 
-<div class="badge">TREND</div>
-
 <div class="thumbnail">
+
+<div class="badge">TREND</div>
 
 <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop">
 
 <div class="overlay"></div>
 
 <div class="play">
-<button onclick="openVideo(4)">▶</button>
+<a href="shopee://open?url=https://s.shopee.co.id/LINKKEEMPAT">▶</a>
 </div>
 
 </div>
@@ -282,52 +254,6 @@ body{
 </div>
 
 </div>
-
-<script>
-
-/* LINK MASING MASING CARD */
-
-const videoLinks = {
-
-1: "shopee://open?url=https://s.shopee.co.id/1LcPc6i8l4",
-
-2: "shopee://open?url=https://s.shopee.co.id/7KkM1G0abc",
-
-3: "shopee://open?url=https://s.shopee.co.id/9fakexyz12",
-
-4: "shopee://open?url=https://s.shopee.co.id/4Vcontoh34"
-
-};
-
-/* FALLBACK LINK */
-
-const fallbackLinks = {
-
-1: "https://s.shopee.co.id/1LcPc6i8l4",
-
-2: "https://s.shopee.co.id/7KkM1G0abc",
-
-3: "https://s.shopee.co.id/9fakexyz12",
-
-4: "https://s.shopee.co.id/4Vcontoh34"
-
-};
-
-function openVideo(id){
-
-    // buka aplikasi Shopee
-    window.location.href = videoLinks[id];
-
-    // fallback kalau aplikasi tidak ada
-    setTimeout(() => {
-
-        window.open(fallbackLinks[id], "_blank");
-
-    },1200);
-
-}
-
-</script>
 
 </body>
 </html>
