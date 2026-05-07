@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bro Chil Indo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050505;
+    color:white;
+    padding:18px;
+}
+
+/* TITLE */
+
+.title{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:5px;
+    background:linear-gradient(to right,#ff0055,#ff7b00);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.desc{
+    color:#888;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:14px;
+}
+
+/* CARD */
+
+.card{
+    background:#101010;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.thumbnail{
+    position:relative;
+    height:220px;
+}
+
+.thumbnail img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* PLAY BUTTON */
+
+.play{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.play button{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.play button:hover{
+    background:#ff0055;
+    transform:scale(1.1);
+}
+
+/* INFO */
+
+.info{
+    padding:12px;
+}
+
+.info h3{
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.meta{
+    font-size:12px;
+    color:#888;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.thumbnail{
+    height:190px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="title">
+Bro Chil Indo
+</div>
+
+<div class="desc">
+Unlimited Streaming • HD Quality
+</div>
+
+<div class="grid">
+
+<!-- CARD -->
+
+<div class="card">
+<div class="thumbnail">
+
+<img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?q=80&w=1200&auto=format&fit=crop">
+
+<div class="play">
+<button onclick="openVideo()">▶</button>
+</div>
+
+</div>
+
+<div class="info">
+<h3>Late Night</h3>
+<div class="meta">1.2M Views</div>
+</div>
+</div>
+
+<!-- CARD -->
+
+<div class="card">
+<div class="thumbnail">
+
+<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200&auto=format&fit=crop">
+
+<div class="play">
+<button onclick="openVideo()">▶</button>
+</div>
+
+</div>
+
+<div class="info">
+<h3>Private Mood</h3>
+<div class="meta">Premium</div>
+</div>
+</div>
+
+<!-- CARD -->
+
+<div class="card">
+<div class="thumbnail">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+
+<div class="play">
+<button onclick="openVideo()">▶</button>
+</div>
+
+</div>
+
+<div class="info">
+<h3>After Dark</h3>
+<div class="meta">HD Video</div>
+</div>
+</div>
+
+<!-- CARD -->
+
+<div class="card">
+<div class="thumbnail">
+
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop">
+
+<div class="play">
+<button onclick="openVideo()">▶</button>
+</div>
+
+</div>
+
+<div class="info">
+<h3>VIP Room</h3>
+<div class="meta">Trending</div>
+</div>
+</div>
+
+</div>
+
+<script>
+
+// cek apakah user sudah pernah klik shopee
+let alreadyVisited = localStorage.getItem("shopee_done");
+
+function openVideo(){
+
+    // kalau belum pernah
+    if(!alreadyVisited){
+
+        // simpan status
+        localStorage.setItem("shopee_done","yes");
+
+        // buka aplikasi shopee
+        window.location.href = "shopee://";
+
+        // fallback browser
+        setTimeout(() => {
+            window.open("https://shopee.co.id", "_blank");
+        },1000);
+
+    }else{
+
+        // LINK KEDUA
+        window.open("https://google.com", "_blank");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
