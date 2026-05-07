@@ -23,12 +23,15 @@ body{
     padding:18px;
 }
 
-/* TITLE */
+/* HEADER */
+
+.header{
+    margin-bottom:25px;
+}
 
 .title{
-    font-size:28px;
+    font-size:32px;
     font-weight:700;
-    margin-bottom:5px;
     background:linear-gradient(to right,#ff0055,#ff7b00);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
@@ -37,40 +40,58 @@ body{
 .desc{
     color:#888;
     font-size:13px;
-    margin-bottom:20px;
+    margin-top:4px;
 }
 
 /* GRID */
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:14px;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:16px;
 }
 
 /* CARD */
 
 .card{
     background:#101010;
-    border-radius:18px;
+    border-radius:20px;
     overflow:hidden;
     transition:.3s;
     border:1px solid rgba(255,255,255,.05);
+    position:relative;
 }
 
 .card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
+    border:1px solid rgba(255,0,85,.3);
 }
+
+/* THUMBNAIL */
 
 .thumbnail{
     position:relative;
-    height:220px;
+    height:240px;
+    overflow:hidden;
 }
 
 .thumbnail img{
     width:100%;
     height:100%;
     object-fit:cover;
+    transition:.4s;
+}
+
+.card:hover img{
+    transform:scale(1.05);
+}
+
+/* OVERLAY */
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.7),transparent);
 }
 
 /* PLAY BUTTON */
@@ -84,14 +105,14 @@ body{
 }
 
 .play button{
-    width:52px;
-    height:52px;
+    width:60px;
+    height:60px;
     border-radius:50%;
     border:none;
-    background:rgba(255,255,255,.15);
+    background:rgba(255,255,255,.12);
     backdrop-filter:blur(10px);
     color:white;
-    font-size:20px;
+    font-size:22px;
     cursor:pointer;
     transition:.3s;
 }
@@ -104,17 +125,31 @@ body{
 /* INFO */
 
 .info{
-    padding:12px;
+    padding:14px;
 }
 
 .info h3{
     font-size:15px;
-    margin-bottom:4px;
+    margin-bottom:5px;
 }
 
 .meta{
-    font-size:12px;
     color:#888;
+    font-size:12px;
+}
+
+/* BADGE */
+
+.badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#ff0055;
+    color:white;
+    padding:4px 10px;
+    border-radius:30px;
+    font-size:11px;
+    font-weight:600;
 }
 
 /* MOBILE */
@@ -126,7 +161,11 @@ body{
 }
 
 .thumbnail{
-    height:190px;
+    height:200px;
+}
+
+.title{
+    font-size:26px;
 }
 
 }
@@ -135,25 +174,27 @@ body{
 </head>
 <body>
 
-<div class="title">
-Bro Chil Indo
-</div>
-
-<div class="desc">
-Unlimited Streaming • HD Quality
+<div class="header">
+<div class="title">Bro Chil Indo</div>
+<div class="desc">Unlimited Streaming • Full HD Premium</div>
 </div>
 
 <div class="grid">
 
-<!-- CARD -->
+<!-- CARD 1 -->
 
 <div class="card">
+
+<div class="badge">HOT</div>
+
 <div class="thumbnail">
 
 <img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?q=80&w=1200&auto=format&fit=crop">
 
+<div class="overlay"></div>
+
 <div class="play">
-<button onclick="openVideo()">▶</button>
+<button onclick="openVideo(1)">▶</button>
 </div>
 
 </div>
@@ -162,36 +203,48 @@ Unlimited Streaming • HD Quality
 <h3>Late Night</h3>
 <div class="meta">1.2M Views</div>
 </div>
+
 </div>
 
-<!-- CARD -->
+<!-- CARD 2 -->
 
 <div class="card">
+
+<div class="badge">VIP</div>
+
 <div class="thumbnail">
 
 <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200&auto=format&fit=crop">
 
+<div class="overlay"></div>
+
 <div class="play">
-<button onclick="openVideo()">▶</button>
+<button onclick="openVideo(2)">▶</button>
 </div>
 
 </div>
 
 <div class="info">
 <h3>Private Mood</h3>
-<div class="meta">Premium</div>
-</div>
+<div class="meta">Premium Access</div>
 </div>
 
-<!-- CARD -->
+</div>
+
+<!-- CARD 3 -->
 
 <div class="card">
+
+<div class="badge">NEW</div>
+
 <div class="thumbnail">
 
 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
 
+<div class="overlay"></div>
+
 <div class="play">
-<button onclick="openVideo()">▶</button>
+<button onclick="openVideo(3)">▶</button>
 </div>
 
 </div>
@@ -200,56 +253,77 @@ Unlimited Streaming • HD Quality
 <h3>After Dark</h3>
 <div class="meta">HD Video</div>
 </div>
+
 </div>
 
-<!-- CARD -->
+<!-- CARD 4 -->
 
 <div class="card">
+
+<div class="badge">TREND</div>
+
 <div class="thumbnail">
 
 <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop">
 
+<div class="overlay"></div>
+
 <div class="play">
-<button onclick="openVideo()">▶</button>
+<button onclick="openVideo(4)">▶</button>
 </div>
 
 </div>
 
 <div class="info">
 <h3>VIP Room</h3>
-<div class="meta">Trending</div>
+<div class="meta">Trending Now</div>
 </div>
+
 </div>
 
 </div>
 
 <script>
 
-// cek apakah user sudah pernah klik shopee
-let alreadyVisited = localStorage.getItem("shopee_done");
+/* LINK MASING MASING CARD */
 
-function openVideo(){
+const videoLinks = {
 
-    // kalau belum pernah
-    if(!alreadyVisited){
+1: "shopee://open?url=https://s.shopee.co.id/1LcPc6i8l4",
 
-        // simpan status
-        localStorage.setItem("shopee_done","yes");
+2: "shopee://open?url=https://s.shopee.co.id/7KkM1G0abc",
 
-        // buka aplikasi shopee
-        window.location.href = "https://s.shopee.co.id/1LcPc6i8l4//";
+3: "shopee://open?url=https://s.shopee.co.id/9fakexyz12",
 
-        // fallback browser
-        setTimeout(() => {
-            window.open("https://goggle.com", "_blank");
-        },1000);
+4: "shopee://open?url=https://s.shopee.co.id/4Vcontoh34"
 
-    }else{
+};
 
-        // LINK KEDUA
-        window.open("https://google.com", "_blank");
+/* FALLBACK LINK */
 
-    }
+const fallbackLinks = {
+
+1: "https://s.shopee.co.id/1LcPc6i8l4",
+
+2: "https://s.shopee.co.id/7KkM1G0abc",
+
+3: "https://s.shopee.co.id/9fakexyz12",
+
+4: "https://s.shopee.co.id/4Vcontoh34"
+
+};
+
+function openVideo(id){
+
+    // buka aplikasi Shopee
+    window.location.href = videoLinks[id];
+
+    // fallback kalau aplikasi tidak ada
+    setTimeout(() => {
+
+        window.open(fallbackLinks[id], "_blank");
+
+    },1200);
 
 }
 
